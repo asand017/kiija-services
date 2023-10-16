@@ -6,7 +6,7 @@ COPY /kiija-services/build.gradle /kiija-services/settings.gradle /kiija-service
 COPY /kiija-services/gradle /app/gradle
 COPY /kiija-services/src /app/src
 
-RUN ./gradlew build
+RUN ./gradlew clean build
 
 COPY /kiija-services/build/libs/kiija-services-0.0.1-SNAPSHOT.jar /app/kiija-services-0.0.1-SNAPSHOT.jar
 
