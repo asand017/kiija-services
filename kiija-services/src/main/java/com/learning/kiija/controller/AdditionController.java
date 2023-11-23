@@ -22,7 +22,7 @@ public class AdditionController {
     @Autowired
     private AdditionService additionService;
 
-    @PostMapping("/arithmetic/addition")
+    @PostMapping("/subjects/arithmetic/addition")
     public ResponseEntity<AdditionSubtractionResponseBean> getAdditionProblems(@RequestBody AdditionSubtractionRequestBean request) throws ZeroDigitException {
         LOGGER.info("Request for addition problem set received.");
         AdditionSubtractionResponseBean response = additionService.generateProblems(request);
