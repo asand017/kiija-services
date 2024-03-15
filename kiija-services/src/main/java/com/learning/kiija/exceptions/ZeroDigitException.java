@@ -1,6 +1,6 @@
 package com.learning.kiija.exceptions;
 
-public class ZeroDigitException extends Exception {
+public class ZeroDigitException extends RuntimeException {
     
     public ZeroDigitException() {
         super();
