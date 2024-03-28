@@ -46,7 +46,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-events
 	implementation 'com.amazonaws:aws-lambda-java-events:3.11.4'
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-log4j2
-	runtimeOnly() 'com.amazonaws:aws-lambda-java-log4j2:1.6.0'
+	runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.6.0'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
@@ -61,8 +61,40 @@ tasks.named('test') {
 }
 
 tasks.register('buildZip', Zip) {
-	into('lib') {
+	description = "zip aws-kiija-services"
+
+	from compileJava
+	into ('lib') {
 		from(jar)
-		from(configurations.runtimeClasspath)
 	}
 }
+
+tasks.register('buildLayer', Copy) {
+	description = "build aws lambda layer"
+
+	from configurations.runtimeClasspath
+	into "$buildDir/java/lib"
+}
+
+tasks.register('zipLayer', Zip) {
+	description = "zip aws layer"
+	archiveFileName = "kiija-layer.zip"
+
+	from "$buildDir/java/lib"
+	into ('java/lib')
+}
+
+
+//tasks.register('learning') {
+//	println "project.projectDir: " + project.projectDir
+//	println "project.rootDir: " + project.rootDir
+//}
+//
+//tasks.register('printClasspath') {
+//	doLast {
+//		configurations.runtimeClasspath.each { File file ->
+//			println "Dependency: $file"
+//		}
+//	}
+//}
+
