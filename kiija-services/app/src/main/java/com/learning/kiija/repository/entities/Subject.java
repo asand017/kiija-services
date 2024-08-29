@@ -16,14 +16,14 @@ public class Subject {
 
     private String name;
 
-    private Integer setId;
+    // private Integer setId;
 
-    public Subject() {}
+    // public Subject() {}
 
-    public Subject(String name, Integer setId) {
-        this.name = name;
-        this.setId = setId;
-    }
+    // public Subject(String name, Integer setId) {
+    //     this.name = name;
+    //     this.setId = setId;
+    // }
 
     public Integer getSubjectId() {
         return subjectId;
@@ -41,13 +41,13 @@ public class Subject {
         this.name = name;
     }
 
-    public Integer getSetId() {
-        return setId;
-    }
+    // public Integer getSetId() {
+    //     return setId;
+    // }
 
-    public void setSetId(Integer setId) {
-        this.setId = setId;
-    }
+    // public void setSetId(Integer setId) {
+    //     this.setId = setId;
+    // }
 
     
 }
